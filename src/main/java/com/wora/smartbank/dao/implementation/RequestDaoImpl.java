@@ -2,6 +2,7 @@ package com.wora.smartbank.dao.implementation;
 
 import com.wora.smartbank.dao.RequestDao;
 import com.wora.smartbank.entities.Request;
+import com.wora.smartbank.util.JpaUtil;
 import jakarta.persistence.*;
 import jakarta.transaction.Transaction;
 
@@ -10,8 +11,7 @@ import java.util.List;
 public class RequestDaoImpl implements RequestDao {
     private EntityManager entityManager;
     public RequestDaoImpl(){
-        EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("SmartBank");
-        entityManager=entityManagerFactory.createEntityManager();
+        this.entityManager = JpaUtil.getEntityManager();
     }
     @Override
     public void save(Request request) {
