@@ -1,9 +1,7 @@
-package com.wora.smartbank;
+package com.wora.smartbank.controller;
 
 import java.io.*;
 
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 

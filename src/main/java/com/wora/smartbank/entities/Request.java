@@ -1,6 +1,8 @@
 package com.wora.smartbank.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -10,19 +12,37 @@ public class Request implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotBlank(message = "First name cannot be empty")
     private String firstName;
+    @NotBlank(message = "Last name cannot be empty")
     private String lastName;
+    @NotBlank(message = "CIN is required")
     private String cin;
+    @NotNull(message = "Birth date is required")
     private LocalDate birthDate;
+    @NotNull(message = "Start employment date is required")
     private LocalDate startEmployementDate;
+
+    @NotNull(message = "Monthly income is required")
+    @Positive(message = "Monthly income must be positive")
     private Double monthlyIncome;
     private boolean hasActivateCredits;
+    @Email(message = "Email should be valid")
+    @NotBlank(message = "Email is required")
     private String email;
+    @NotBlank(message = "Phone number is required")
     private String phoneNumber;
     private String type;
     private String position;
+
+    @NotBlank(message = "Amount is required")
     private String amount;
+
+    @Min(value = 1, message = "Duration in months must be at least 1")
     private int durationsInMonths;
+
+    @NotNull(message = "Monthly payment is required")
+    @Positive(message = "Monthly payment must be positive")
     private BigDecimal monthlyPayment;
 
 
@@ -104,7 +124,7 @@ public class Request implements Serializable {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.cin = cin;  // Correction ici
+        this.cin = cin;
         this.birthDate = birthDate;
         this.startEmployementDate = startEmployementDate;
         this.monthlyIncome = monthlyIncome;
