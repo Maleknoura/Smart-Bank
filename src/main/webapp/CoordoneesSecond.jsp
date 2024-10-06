@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <title>Crédit Bancaire</title>
+    <title>SmartBank</title>
 </head>
 <body class="bg">
 <div>
@@ -44,37 +44,23 @@
                     </div>
                 </div>
                 <div class="margin-x-1">
+                    <form action="${pageContext.request.contextPath}/SecondStep" method="post">
+
                     <div class="m-t-5 input-container">
                         <input type="email" name="email" id="email" placeholder="" class="custom-input" value="">
                         <label for="email" class="custom-label">Email*</label>
                     </div>
                     <div class="m-t-9 input-container">
-                        <input type="tel" name="phone" id="phone" placeholder="" class="custom-input" value="">
+                        <input type="tel" name="numberPhone" id="phone" placeholder="" class="custom-input" value="">
                         <label for="phone" class="custom-label">Téléphone mobile*</label>
                     </div>
-                    <div class="radio-container">
-                        <label for="civilite" class="radio-title">Civilité</label>
-                        <div class="radio-group" id="civilite">
-                            <label class="custom-radio">
-                                <input type="radio" name="option" value="monsieur">
-                                <span class="radio-label">Monsieur</span>
-                            </label>
-                            <label class="custom-radio">
-                                <input type="radio" name="option" value="madame">
-                                <span class="radio-label">Madame</span>
-                            </label>
-                            <label class="custom-radio">
-                                <input type="radio" name="option" value="mademoiselle">
-                                <span class="radio-label">Mademoiselle</span>
-                            </label>
-                        </div>
-                    </div>
                     <div class="flex-center">
-                        <button class="button1 m-t-5">
+                        <button type="submit" class="button1 m-t-5">
                             <p class="p-10">Continuer</p>
                             <p class="p-2">Sans engagement</p>
                         </button>
                     </div>
+                    </form>
                 </div>
                 <div class="m-t-10">
                     <p class="color-four fs-1">Simulation à titre indicatif et non contractuelle. La mensualité minimale est de 180 dirhams. Un client Wafasalaf peut bénéficier d'une tarification plus avantageuse en fonction de ses conditions préférentielles.</p>
@@ -83,26 +69,33 @@
             </div>
             <div class="card w-20">
                 <p class="titre-center mon color-four">Mon récapitulatif</p>
+
                 <p class="color-four bg1">Mon projet</p>
-                <p class="color-first pret">Prêt Personnel</p>
+                <p class="color-first pret">${type}</p>
+
                 <p class="color-four bg1">Détails de mon crédit</p>
+
                 <div class="data">
                     <p class="color-four fs2">Vous êtes:</p>
-                    <p class="color-first fs2 fw">Fonctionnaire</p>
+                    <p class="color-first fs2 fw">${position}</p>
                 </div>
+
                 <div class="data">
                     <p class="color-four fs2">Montant:</p>
-                    <p class="color-first fs2 fw">360 000 DH</p>
+                    <p class="color-first fs2 fw">${amount} DH</p>
                 </div>
+
                 <div class="data">
                     <p class="color-four fs2">Durée:</p>
-                    <p class="color-first fs2 fw">84 mois</p>
+                    <p class="color-first fs2 fw">${durationsInMonths} mois</p>
                 </div>
+
                 <div class="data">
                     <p class="color-four fs2">Mensualité:</p>
-                    <p class="color-first fs2 fw">5 735,59 DH</p>
+                    <p class="color-first fs2 fw">${monthlyIncome} DH</p>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

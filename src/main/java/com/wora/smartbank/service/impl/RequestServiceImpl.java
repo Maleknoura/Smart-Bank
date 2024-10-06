@@ -1,4 +1,4 @@
-package com.wora.smartbank.service.impl;
+    package com.wora.smartbank.service.impl;
 
 import com.wora.smartbank.dao.RequestDao;
 import com.wora.smartbank.entities.Request;
@@ -17,15 +17,20 @@ public class RequestServiceImpl implements RequestService {
     }
     @Override
     public void save(Request request) {
-        Set<ConstraintViolation<Request>> violations = ValidationUtil.validateRequest(request);
-
+      System.out.println("hello");
+       Set<ConstraintViolation<Request>> violations = ValidationUtil.validateRequest(request);
+        System.out.println("hi");
         if (!violations.isEmpty()) {
+            System.out.println("hereeee");
             for (ConstraintViolation<Request> violation : violations) {
                 System.out.println("Validation error: " + violation.getPropertyPath() + " " + violation.getMessage());
             }
         } else {
+            System.out.println("hello beforre");
             requestDao.save(request);
+            System.out.println("hello after");
         }
+
     }
 
     @Override

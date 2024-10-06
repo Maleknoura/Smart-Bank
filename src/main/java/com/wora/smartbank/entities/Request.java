@@ -9,6 +9,7 @@ import java.time.LocalDate;
 
 @Entity
 public class Request implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -34,7 +35,7 @@ public class Request implements Serializable {
     private String phoneNumber;
     private String type;
     private String position;
-
+    private String title;
     @NotBlank(message = "Amount is required")
     private String amount;
 
@@ -44,8 +45,28 @@ public class Request implements Serializable {
     @NotNull(message = "Monthly payment is required")
     @Positive(message = "Monthly payment must be positive")
     private BigDecimal monthlyPayment;
-
-
+    public Request() {}
+    public Request(long id, String firstName, String lastName, String cin, LocalDate birthDate,
+                   LocalDate startEmployementDate, Double monthlyIncome, boolean hasActivateCredits,
+                   String email, String phoneNumber, String type, String position,
+                   String amount, int durationsInMonths, BigDecimal monthlyPayment,String title) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.cin = cin;
+        this.birthDate = birthDate;
+        this.startEmployementDate = startEmployementDate;
+        this.monthlyIncome = monthlyIncome;
+        this.hasActivateCredits = hasActivateCredits;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.type = type;
+        this.position = position;
+        this.amount = amount;
+        this.durationsInMonths = durationsInMonths;
+        this.monthlyPayment = monthlyPayment;
+        this.title=title;
+    }
     public long getId() {
         return id;
     }
@@ -106,36 +127,24 @@ public class Request implements Serializable {
         return monthlyPayment;
     }
 
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public Request() {}
-
-    public Request(long id, String firstName, String lastName, String cin, LocalDate birthDate,
-                   LocalDate startEmployementDate, Double monthlyIncome, boolean hasActivateCredits,
-                   String email, String phoneNumber, String type, String position,
-                   String amount, int durationsInMonths, BigDecimal monthlyPayment) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public void setCin(@NotBlank(message = "CIN is required") String cin) {
         this.cin = cin;
-        this.birthDate = birthDate;
-        this.startEmployementDate = startEmployementDate;
-        this.monthlyIncome = monthlyIncome;
-        this.hasActivateCredits = hasActivateCredits;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.type = type;
-        this.position = position;
-        this.amount = amount;
-        this.durationsInMonths = durationsInMonths;
-        this.monthlyPayment = monthlyPayment;
+    }
+
+    public @NotBlank(message = "CIN is required") String getCin() {
+        return cin;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setLastName(String lastName) {
@@ -169,6 +178,7 @@ public class Request implements Serializable {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
 
     public void setType(String type) {
         this.type = type;

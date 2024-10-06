@@ -1,10 +1,9 @@
-package com.wora.smartbank.dao.implementation;
+package com.wora.smartbank.dao.impl;
 
 import com.wora.smartbank.dao.RequestDao;
 import com.wora.smartbank.entities.Request;
 import com.wora.smartbank.util.JpaUtil;
 import jakarta.persistence.*;
-import jakarta.transaction.Transaction;
 
 import java.util.List;
 
@@ -12,6 +11,8 @@ public class RequestDaoImpl implements RequestDao {
     private EntityManager entityManager;
     public RequestDaoImpl(){
         this.entityManager = JpaUtil.getEntityManager();
+        System.out.println("EntityManager initialized: " + entityManager);
+
     }
     @Override
     public void save(Request request) {
