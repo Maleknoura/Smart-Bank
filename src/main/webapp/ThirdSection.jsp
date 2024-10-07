@@ -106,40 +106,40 @@
                 <p class="titre-center mon color-four">Mon récapitulatif</p>
 
                 <p class="color-four bg1">Mon projet</p>
-                <p class="color-first pret">${type}</p> <!-- Type de projet récupéré de la session -->
+                <p class="color-first pret">${type}</p>j
 
                 <p class="color-four bg1">Détails de mon crédit</p>
 
                 <div class="data">
                     <p class="color-four fs2">Vous êtes:</p>
-                    <p class="color-first fs2 fw">${position}</p> <!-- Position récupérée de la session -->
+                    <p class="color-first fs2 fw">${position}</p>
                 </div>
 
                 <div class="data">
                     <p class="color-four fs2">Montant:</p>
-                    <p class="color-first fs2 fw">${amount} DH</p> <!-- Montant récupéré de la session -->
+                    <p class="color-first fs2 fw">${amount} DH</p>
                 </div>
 
                 <div class="data">
                     <p class="color-four fs2">Durée:</p>
-                    <p class="color-first fs2 fw">${durationsInMonths} mois</p> <!-- Durée en mois -->
+                    <p class="color-first fs2 fw">${durationsInMonths} mois</p>
                 </div>
 
                 <div class="data">
                     <p class="color-four fs2">Mensualité:</p>
-                    <p class="color-first fs2 fw">${monthlyIncome} DH</p> <!-- Revenu mensuel -->
+                    <p class="color-first fs2 fw">${monthlyIncome} DH</p>
                 </div>
 
                 <p class="color-four bg1">Informations de contact</p>
 
                 <div class="data">
                     <p class="color-four fs2">Email:</p>
-                    <p class="color-first fs2 fw">${email}</p> <!-- Email récupéré de la session -->
+                    <p class="color-first fs2 fw">${email}</p>
                 </div>
 
                 <div class="data">
                     <p class="color-four fs2">Numéro de téléphone:</p>
-                    <p class="color-first fs2 fw">${numberPhone}</p> <!-- Numéro de téléphone récupéré de la session -->
+                    <p class="color-first fs2 fw">${numberPhone}</p>
                 </div>
             </div>
 

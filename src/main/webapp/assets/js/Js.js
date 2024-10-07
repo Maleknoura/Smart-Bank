@@ -70,3 +70,24 @@ mensualiteValue.addEventListener('input', function () {
 
 updateMensualite();
 
+function validateForm() {
+    const montant = document.getElementById('sliderValue').value;
+    const duree = document.getElementById('durationValue').value;
+    const mensualites = document.getElementById('mensualiteValue').value;
+    let errors = [];
+
+    if (!montant || montant <= 0) {
+        errors.push('La durée doit être un nombre entier supérieur à 0.');
+    }
+
+    if (!duree || duree <= 0) {
+        errors.push('La durée doit être un nombre entier supérieur à 0.');
+    }
+
+    if (!mensualites || mensualites <= 0) {
+        errors.push('Les mensualités doivent être supérieures à 0.');
+    }
+
+
+}
+

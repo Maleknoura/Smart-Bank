@@ -32,6 +32,7 @@ public class RequestDaoImpl implements RequestDao {
 
     @Override
     public List<Request> findAll() {
+
         Query query=entityManager.createQuery("select r from Request r");
         return query.getResultList();
     }

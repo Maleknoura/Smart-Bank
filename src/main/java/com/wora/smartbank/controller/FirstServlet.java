@@ -19,9 +19,9 @@ public class FirstServlet extends HttpServlet {
         String type = req.getParameter("type");
         String position = req.getParameter("position");
 
-        String durationsInMonths = "20";
-        String monthlyPayment = "2460";
-        String amount = "2440";
+        String durationsInMonths = req.getParameter("durationsInMonths");
+        String monthlyPayment = req.getParameter("monthlyPayment");
+        String amount = req.getParameter("amount");
 
         session.setAttribute("type", type);
         session.setAttribute("position", position);
