@@ -4,22 +4,25 @@ import com.wora.smartbank.dao.RequestDao;
 import com.wora.smartbank.entities.Request;
 import com.wora.smartbank.service.RequestService;
 import com.wora.smartbank.util.ValidationUtil;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import jakarta.validation.ConstraintViolation;
 
 import java.util.List;
 import java.util.Set;
 
-public class RequestServiceImpl implements RequestService {
-    private RequestDao requestDao;
+    @RequestScoped
+    public class RequestServiceImpl implements RequestService {
 
-    public RequestServiceImpl(RequestDao requestDao) {
-        this.requestDao = requestDao;
-    }
+        @Inject
+        private RequestDao requestDao;
+
+
     @Override
     public void save(Request request) {
       System.out.println("hello");
        Set<ConstraintViolation<Request>> violations = ValidationUtil.validateRequest(request);
-        System.out.println("hi");
+
         if (!violations.isEmpty()) {
             System.out.println("hereeee");
             for (ConstraintViolation<Request> violation : violations) {

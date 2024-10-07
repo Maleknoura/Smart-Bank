@@ -10,6 +10,7 @@ import com.wora.smartbank.entities.Request;
 import com.wora.smartbank.service.RequestService;
 import com.wora.smartbank.service.impl.RequestServiceImpl;
 import com.wora.smartbank.dao.impl.RequestDaoImpl;
+import jakarta.inject.Inject;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -17,7 +18,8 @@ import jakarta.servlet.annotation.*;
 
 @WebServlet("/ThirdStep")
 public class ThirdStepServlet extends HttpServlet {
-
+    @Inject
+    public RequestService requestService;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -84,13 +86,7 @@ public class ThirdStepServlet extends HttpServlet {
         requestObj.setDurationsInMonths(durationsInMonthsInt);
         requestObj.setMonthlyPayment(monthlyPaymentObj);
 
-
-
-
-        RequestDao requestDao = new RequestDaoImpl();
-        RequestService requestService = new RequestServiceImpl(requestDao);
         requestService.save(requestObj);
-
 
         response.sendRedirect("Confirmation.jsp");
     }
