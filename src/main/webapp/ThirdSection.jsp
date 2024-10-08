@@ -127,7 +127,7 @@
 
                 <div class="data">
                     <p class="color-four fs2">Mensualité:</p>
-                    <p class="color-first fs2 fw">${monthlyIncome} DH</p>
+                    <p class="color-first fs2 fw">${monthlyPayment} DH</p>
                 </div>
 
                 <p class="color-four bg1">Informations de contact</p>

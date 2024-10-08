@@ -12,5 +12,9 @@
 </head>
 <body>
 it's confirmed
+<table border="1">
+    <thead>
+
+</table>
 </body>
 </html>

@@ -20,7 +20,7 @@ public class SecondStepServlet extends HttpServlet {
         String type = (String) session.getAttribute("type");
         String position = (String) session.getAttribute("position");
         String durationsInMonths = (String) session.getAttribute("durationsInMonths");
-        String monthlyIncome = (String) session.getAttribute("monthlyIncome");
+        String monthlyPayment = (String) session.getAttribute("monthlyPayment");
         String amount = (String) session.getAttribute("amount");
 
         String email = request.getParameter("email");
@@ -32,7 +32,7 @@ public class SecondStepServlet extends HttpServlet {
         System.out.println("Type: " + type);
         System.out.println("Position: " + position);
         System.out.println("Durations in Months: " + durationsInMonths);
-        System.out.println("Monthly Income: " + monthlyIncome);
+        System.out.println("Monthly Income: " +monthlyPayment);
         System.out.println("Amount: " + amount);
         System.out.println("Email: " + email);
         System.out.println("Number Phone: " + numberPhone);
@@ -46,14 +46,14 @@ public class SecondStepServlet extends HttpServlet {
         String type = (String) session.getAttribute("type");
         String position = (String) session.getAttribute("position");
         String durationsInMonths = (String) session.getAttribute("durationsInMonths");
-        String monthlyIncome = (String) session.getAttribute("monthlyIncome");
+        String monthlyPayment = (String) session.getAttribute("monthlyPayment");
         String amount = (String) session.getAttribute("amount");
 
 
         request.setAttribute("type", type);
         request.setAttribute("position", position);
         request.setAttribute("durationsInMonths", durationsInMonths);
-        request.setAttribute("monthlyIncome", monthlyIncome);
+        request.setAttribute("monthlyPayment", monthlyPayment);
         request.setAttribute("amount", amount);
 
 

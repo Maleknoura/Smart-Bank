@@ -30,12 +30,28 @@ public class RequestDaoImpl implements RequestDao {
 
     }
 
-    @Override
-    public List<Request> findAll() {
 
-        Query query=entityManager.createQuery("select r from Request r");
-        return query.getResultList();
-    }
+    @Override
+        public List<Request> findAll() {
+            EntityTransaction transaction = entityManager.getTransaction();
+            List<Request> requests = null;
+            transaction.begin();
+            try {
+                TypedQuery<Request> query = entityManager.createQuery(
+                        "SELECT r FROM Request r LEFT JOIN FETCH r.requestStates", Request.class);
+                requests = query.getResultList();
+                System.out.println("Number of requests found: " + requests.size());
+                transaction.commit();
+            } catch (Exception e) {
+                if (transaction.isActive()) {
+                    transaction.rollback();
+                }
+                System.err.println("Error during findAll: " + e.getMessage());
+                e.printStackTrace();
+            }
+            return requests;
+        }
+
 
     @Override
     public Request findById(long id) {

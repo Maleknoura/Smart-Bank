@@ -2,7 +2,7 @@ package com.wora.smartbank.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-
+import java.util.Set;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -45,6 +45,10 @@ public class Request implements Serializable {
     @NotNull(message = "Monthly payment is required")
     @Positive(message = "Monthly payment must be positive")
     private BigDecimal monthlyPayment;
+    @OneToMany(mappedBy = "request", cascade = CascadeType.ALL)
+    private Set<RequestState> requestStates;
+
+
     public Request() {}
     public Request(long id, String firstName, String lastName, String cin, LocalDate birthDate,
                    LocalDate startEmployementDate, Double monthlyIncome, boolean hasActivateCredits,
@@ -179,7 +183,13 @@ public class Request implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
+    public Set<RequestState> getRequestStates() {
+        return requestStates;
+    }
 
+    public void setRequestStates(Set<RequestState> requestStates) {
+        this.requestStates = requestStates;
+    }
     public void setType(String type) {
         this.type = type;
     }

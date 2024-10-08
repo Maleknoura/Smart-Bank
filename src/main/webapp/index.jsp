@@ -109,6 +109,9 @@
         </div>
     </div>
 </div>
+<form action="${pageContext.request.contextPath}/requests" method="get">
+    <button type="submit">Afficher les Requêtes</button>
+</form>
 <script src="assets/js/Js.js"></script>
 </body>
 </html>

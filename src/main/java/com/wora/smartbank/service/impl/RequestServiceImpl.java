@@ -50,7 +50,7 @@ import java.util.Set;
     }
 
     @Override
-    public List<Request> findall(Request request) {
+    public List<Request> findall() {
         return requestDao.findAll();
     }
 
