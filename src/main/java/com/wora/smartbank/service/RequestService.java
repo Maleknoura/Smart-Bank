@@ -10,4 +10,5 @@ public interface RequestService {
     List<Request> findall();
     public Request findById(long id);
     public void delete (long id);
+    public void updateStatus(int requestId, int stateId);
 }

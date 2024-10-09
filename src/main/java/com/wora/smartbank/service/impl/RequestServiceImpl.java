@@ -1,6 +1,7 @@
     package com.wora.smartbank.service.impl;
 
 import com.wora.smartbank.dao.RequestDao;
+import com.wora.smartbank.dao.StateDao;
 import com.wora.smartbank.entities.Request;
 import com.wora.smartbank.service.RequestService;
 import com.wora.smartbank.util.ValidationUtil;
@@ -63,4 +64,9 @@ import java.util.Set;
     public void delete(long id) {
     requestDao.delete(id);
     }
-}
+
+        @Override
+        public void updateStatus(int requestId, int stateId) {
+            requestDao.updateStatus(requestId,stateId);
+        }
+    }

@@ -10,4 +10,5 @@ public interface RequestDao {
     public Request findById(long id);
     public void delete(long id);
     public void update(Request request);
+    public void updateStatus(int requestId,int stateId);
 }
