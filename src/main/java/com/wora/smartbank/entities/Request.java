@@ -38,8 +38,10 @@ public class Request implements Serializable {
     private String type;
     private String position;
     private String title;
-    @NotBlank(message = "Amount is required")
-    private String amount;
+    @NotNull(message = "Amount is required")
+    @Positive(message = "Amount must be positive")
+
+    private Double amount;
 
     @Min(value = 1, message = "Duration in months must be at least 1")
     private int durationsInMonths;
@@ -55,7 +57,7 @@ public class Request implements Serializable {
     public Request(long id, String firstName, String lastName, String cin, LocalDate birthDate,
                    LocalDate startEmployementDate, Double monthlyIncome, boolean hasActivateCredits,
                    String email, String phoneNumber, String type, String position,
-                   String amount, int durationsInMonths, BigDecimal monthlyPayment,String title) {
+                   Double amount, int durationsInMonths, BigDecimal monthlyPayment,String title) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -121,7 +123,7 @@ public class Request implements Serializable {
         return position;
     }
 
-    public String getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
@@ -200,7 +202,7 @@ public class Request implements Serializable {
         this.position = position;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

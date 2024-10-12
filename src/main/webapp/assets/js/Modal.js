@@ -1,13 +1,13 @@
 
-
-    function openModal(requestId, firstName, currentStatus) {
+function openModal(requestId, firstName, currentStateId, currentStatus) {
     document.getElementById('statusModal').style.display = 'block';
     document.getElementById('idInput').value = requestId;
     document.getElementById('firstNameInput').value = firstName;
 
     const statusSelect = document.getElementById('statusSelect');
-    statusSelect.value = currentStatus;
+    statusSelect.value = currentStateId;
 }
+
 
 
     function closeModal() {

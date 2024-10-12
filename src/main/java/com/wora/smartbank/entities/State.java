@@ -46,5 +46,7 @@ public class State implements Serializable {
         requestState.setState(this);
     }
 
-
+    public void setId(int id) {
+        this.id = id;
+    }
 }

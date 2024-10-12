@@ -31,7 +31,7 @@ public class ThirdStepServlet extends HttpServlet {
         String position = (String) session.getAttribute("position");
         String durationsInMonths = (String) session.getAttribute("durationsInMonths");
         String monthlyPayment = (String) session.getAttribute("monthlyPayment");
-        String amount = (String) session.getAttribute("amount");
+        Double amount = (Double) session.getAttribute("amount");
         String email = (String) session.getAttribute("email");
         String numberPhone = (String) session.getAttribute("numberPhone");
 
@@ -98,7 +98,7 @@ public class ThirdStepServlet extends HttpServlet {
         String position = (String) session.getAttribute("position");
         String durationsInMonths = (String) session.getAttribute("durationsInMonths");
         String monthlyIncome = (String) session.getAttribute("monthlyIncome");
-        String amount = (String) session.getAttribute("amount");
+        Double amount = (Double) session.getAttribute("amount");
               String email = (String) session.getAttribute("email");
             String numberPhone = (String) session.getAttribute("numberPhone");
 

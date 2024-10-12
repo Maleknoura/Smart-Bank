@@ -1,23 +1,27 @@
 package com.wora.smartbank.util;
-
-import com.wora.smartbank.entities.Request;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
+import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
 import java.util.Set;
 
+@ApplicationScoped
 public class ValidationUtil {
 
-    private static final ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-    private static final Validator validator = factory.getValidator();
+    private final Validator validator;
 
-    public static Set<ConstraintViolation<Request>> validateRequest(Request request) {
-        return validator.validate(request);
+    public ValidationUtil() {
+        ValidatorFactory factory = Validation.byDefaultProvider()
+                .configure()
+                .messageInterpolator(new ParameterMessageInterpolator())
+                .buildValidatorFactory();
+        this.validator = factory.getValidator();
     }
 
-    public static boolean isValid(Request request) {
-        return validateRequest(request).isEmpty();
+    public <T> Set<ConstraintViolation<T>> validateRequest(T object) {
+        return validator.validate(object);
     }
 }

@@ -21,7 +21,7 @@ public class FirstServlet extends HttpServlet {
 
         String durationsInMonths = req.getParameter("durationsInMonths");
         String monthlyPayment = req.getParameter("monthlyPayment");
-        String amount = req.getParameter("amount");
+        Double amount = Double.parseDouble(req.getParameter("amount"));
 
         session.setAttribute("type", type);
         session.setAttribute("position", position);

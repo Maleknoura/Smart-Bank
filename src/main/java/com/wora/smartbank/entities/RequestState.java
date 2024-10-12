@@ -10,7 +10,7 @@ public class RequestState implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "request_id")
@@ -35,11 +35,11 @@ public class RequestState implements Serializable {
     }
 
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
